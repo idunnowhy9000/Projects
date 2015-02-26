@@ -42,17 +42,17 @@ Problems are motivated by the ones shared at:
 Numbers
 ---------
 
-**Find PI to the Nth Digit** - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.
+**[Find PI to the Nth Digit](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Find%20Pi.cpp)** - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.
 
 **Find e to the Nth Digit** - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go.
 
-**Fibonacci Sequence** - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.
+**[Fibonacci Sequence](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Fibbonacci%20Sequence.cpp)** - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.
 
 **Prime Factorization** - Have the user enter a number and find all Prime Factors (if there are any) and display them.
 
 **Next Prime Number** - Have the program find prime numbers until the user chooses to stop asking for the next one.
 
-**Find Cost of Tile to Cover W x H Floor** - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.
+**[Find Cost of Tile to Cover W x H Floor](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Tile%20Cost.cpp)** - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.
 
 **Mortgage Calculator** - Calculate the monthly payments of a fixed term mortgage over given Nth terms at a given interest rate. Also figure out how long it will take the user to pay back the loan. For added complexity, add an option for users to select the compounding interval (Monthly, Weekly, Daily, Continually).
 
@@ -122,15 +122,15 @@ Data Structures
 Text
 ---------
 
-**Fizz Buzz** - Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
+**[Fizz Buzz](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Fizzbuzz.cpp)** - Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
 
 **Reverse a String** - Enter a string and the program will reverse it and print it out.
 
 **Pig Latin** - Pig Latin is a game of alterations played on the English language game. To create the Pig Latin form of an English word the initial consonant sound is transposed to the end of the word and an ay is affixed (Ex.: "banana" would yield anana-bay). Read Wikipedia for more information on rules.
 
-**Count Vowels** - Enter a string and the program counts the number of vowels in the text. For added complexity have it report a sum of each vowel found.
+**[Count Vowels](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Count%20Vowels.cpp)** - Enter a string and the program counts the number of vowels in the text. For added complexity have it report a sum of each vowel found.
 
-**Check if Palindrome** - Checks if the string entered by the user is a palindrome. That is that it reads the same forwards as backwards like “racecar”
+**[Check if Palindrome](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Palindrome%20Checker.cpp)** - Checks if the string entered by the user is a palindrome. That is that it reads the same forwards as backwards like “racecar”
 
 **Count Words in a String** - Counts the number of individual words in a string. For added complexity read these strings in from a text file and generate a summary.
 
@@ -201,7 +201,7 @@ Threading
 Web
 ---------
 
-**Page Scraper** - Create an application which connects to a site and pulls out all links, or images, and saves them to a list. *Optional: Organize the indexed content and don’t allow duplicates. Have it put the results into an easily searchable index file.*
+**[Page Scraper (WIP)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/JS/Web/Page%20Scraper.js)** - Create an application which connects to a site and pulls out all links, or images, and saves them to a list. *Optional: Organize the indexed content and don’t allow duplicates. Have it put the results into an easily searchable index file.*
 
 **Online White Board** - Create an application which allows you to draw pictures, write notes and use various colors to flesh out ideas for projects. *Optional: Add feature to invite friends to collaborate on a white board online.*
 
