@@ -9,24 +9,24 @@
 #include <iomanip>
 
 void piFind(int len) {
-    float pi;
-    for (int k = 0; k < len; k++) {
-        pi += pow(-1, k) / (2 * k + 1);
-    }
-    pi *= 4;
+	float pi;
+	for (int k = 0; k < len; k++) {
+		pi += pow(-1, k) / (2 * k + 1);
+	}
+	pi *= 4;
 
-    std::cout << std::fixed << std::setprecision(len) << pi;
+	std::cout << std::fixed << std::setprecision(len) << pi;
 }
 
 int main(){
-    std::string str_x;
-    int x;
+	std::string str_x;
+	int x;
 
-    std::cout << "Enter length: ";
-    std::getline(std::cin, str_x);
+	std::cout << "Enter length: ";
+	std::getline(std::cin, str_x);
 
-    x = atoi(str_x.c_str());
+	x = atoi(str_x.c_str());
 
-    std::cout << "\nPi calculated:\n";
-    piFind(x);
+	std::cout << "\nPi calculated:\n";
+	piFind(x);
 }
