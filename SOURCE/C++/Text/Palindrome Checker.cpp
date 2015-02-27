@@ -1,3 +1,6 @@
+/**
+ * Check if Palindrome: Checks if the string entered by the user is a palindrome.
+ */
 #include <iostream>
 #include <string>
 #include <algorithm>

@@ -1,3 +1,6 @@
+/**
+ * Tile Cost: Find Cost of Tile to Cover W x H Floor
+ */
 #include <iostream>
 #include <string>
 #include <cstdlib>

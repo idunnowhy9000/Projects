@@ -1,3 +1,6 @@
+/**
+ * Count Vowels: Enter a string and the program counts the number of vowels in the text.
+ */
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -16,4 +19,6 @@ int main(){
             vowelsCount++;
         }
     }
+	
+	std::cout << "\nWord \"" << word << "\"" << " has " << vowelsCount << " vowels.";
 }
