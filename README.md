@@ -34,17 +34,17 @@ Problems are motivated by the ones shared at:
 Numbers
 ---------
 
-**Find PI to the Nth Digit** - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Find%20Pi.cpp)
+**Find PI to the Nth Digit** - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Find%20Pi.cpp)
 
 **Find e to the Nth Digit** - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go.
 
-**Fibonacci Sequence** - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Fibbonacci%20Sequence.cpp)
+**Fibonacci Sequence** - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Fibbonacci%20Sequence.cpp)
 
 **Prime Factorization** - Have the user enter a number and find all Prime Factors (if there are any) and display them.
 
 **Next Prime Number** - Have the program find prime numbers until the user chooses to stop asking for the next one.
 
-**Find Cost of Tile to Cover W x H Floor** - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Tile%20Cost.cpp)
+**Find Cost of Tile to Cover W x H Floor** - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Tile%20Cost.cpp)
 
 **Mortgage Calculator** - Calculate the monthly payments of a fixed term mortgage over given Nth terms at a given interest rate. Also figure out how long it will take the user to pay back the loan. For added complexity, add an option for users to select the compounding interval (Monthly, Weekly, Daily, Continually).
 
@@ -64,7 +64,7 @@ Numbers
 
 **Tax Calculator** - Asks the user to enter a cost and either a country or state tax. It then returns the tax plus the total cost with tax.
 
-**Factorial Finder** - The Factorial of a positive integer, n, is defined as the product of the sequence n, n-1, n-2, ...1 and the factorial of zero, 0, is defined as being 1. Solve this using both loops and recursion. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Factorial%20Finder.cpp)
+**Factorial Finder** - The Factorial of a positive integer, n, is defined as the product of the sequence n, n-1, n-2, ...1 and the factorial of zero, 0, is defined as being 1. Solve this using both loops and recursion. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Factorial%20Finder.cpp)
 
 **Complex Number Algebra** - Show addition, multiplication, negation, and inversion of complex numbers in separate functions. (Subtraction and division operations can be made with pairs of these operations.) Print the results for each operation tested.
 
@@ -72,7 +72,7 @@ Numbers
 
 **Number Names** - Show how to spell out a number in English. You can use a preexisting implementation or roll your own, but you should support inputs up to at least one million (or the maximum value of your language's default bounded integer type, if that's less). *Optional: Support for inputs other than positive integers (like zero, negative integers, and floating-point numbers).*
 
-**Coin Flip Simulation** - Write some code that simulates flipping a single coin however many times the user decides. The code should record the outcomes and count the number of tails and heads. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Coin%20Flip%20Simulation.cpp)
+**Coin Flip Simulation** - Write some code that simulates flipping a single coin however many times the user decides. The code should record the outcomes and count the number of tails and heads. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Coin%20Flip%20Simulation.cpp)
 
 **Limit Calculator** - Ask the user to enter f(x) and the limit value, then return the value of the limit statement *Optional: Make the calculator capable of supporting infinite limits.*
 
@@ -114,15 +114,15 @@ Data Structures
 Text
 ---------
 
-**Fizz Buzz** - Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Fizzbuzz.cpp)
+**Fizz Buzz** - Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Fizzbuzz.cpp)
 
 **Reverse a String** - Enter a string and the program will reverse it and print it out.
 
-**Pig Latin** - Pig Latin is a game of alterations played on the English language game. To create the Pig Latin form of an English word the initial consonant sound is transposed to the end of the word and an ay is affixed (Ex.: "banana" would yield anana-bay). Read Wikipedia for more information on rules. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Pig%20Latin.cpp)
+**Pig Latin** - Pig Latin is a game of alterations played on the English language game. To create the Pig Latin form of an English word the initial consonant sound is transposed to the end of the word and an ay is affixed (Ex.: "banana" would yield anana-bay). Read Wikipedia for more information on rules. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Pig%20Latin.cpp)
 
-**Count Vowels** - Enter a string and the program counts the number of vowels in the text. For added complexity have it report a sum of each vowel found. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Count%20Vowels.cpp)
+**Count Vowels** - Enter a string and the program counts the number of vowels in the text. For added complexity have it report a sum of each vowel found. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Count%20Vowels.cpp)
 
-**Check if Palindrome** - Checks if the string entered by the user is a palindrome. That is that it reads the same forwards as backwards like “racecar” [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Palindrome%20Checker.cpp)
+**Check if Palindrome** - Checks if the string entered by the user is a palindrome. That is that it reads the same forwards as backwards like “racecar” [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Palindrome%20Checker.cpp)
 
 **Count Words in a String** - Counts the number of individual words in a string. For added complexity read these strings in from a text file and generate a summary. [C++ (WIP)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Word%20Counter.cpp)
 
@@ -160,7 +160,7 @@ Networking
 Classes
 ---------
 
-**Product Inventory Project** - Create an application which manages an inventory of products. Create a product class which has a price, id, and quantity on hand. Then create an *inventory* class which keeps track of various products and can sum up the inventory value. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Classes/Product%20Inventory.cpp)
+**Product Inventory Project** - Create an application which manages an inventory of products. Create a product class which has a price, id, and quantity on hand. Then create an *inventory* class which keeps track of various products and can sum up the inventory value. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Classes/Product%20Inventory.cpp)
 
 **Airline / Hotel Reservation System** - Create a reservation system which books airline seats or hotel rooms. It charges various rates for particular sections of the plane or hotel. Example, first class is going to cost more than coach. Hotel rooms have penthouse suites which cost more. Keep track of when rooms will be available and can be scheduled.
 
@@ -175,7 +175,7 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **Image Gallery** - Create an image abstract class and then a class that inherits from it for each image type. Put them in a program which displays them in a gallery style format for viewing.
 
-**Shape Area and Perimeter Classes** - Create an abstract class called Shape and then inherit from it other shapes like diamond, rectangle, circle, triangle etc. Then have each class override the area and perimeter functionality to handle each shape type. [C++](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Classes/Shapes.cpp)
+**Shape Area and Perimeter Classes** - Create an abstract class called Shape and then inherit from it other shapes like diamond, rectangle, circle, triangle etc. Then have each class override the area and perimeter functionality to handle each shape type. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Classes/Shapes.cpp)
 
 **Flower Shop Ordering To Go** - Create a flower shop application which deals in flower objects and use those flower objects in a bouquet object which can then be sold. Keep track of the number of objects and when you may need to order more.
 
@@ -193,7 +193,7 @@ Threading
 Web
 ---------
 
-**Page Scraper** - Create an application which connects to a site and pulls out all links, or images, and saves them to a list. *Optional: Organize the indexed content and don’t allow duplicates. Have it put the results into an easily searchable index file.* [JS](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/JS/Web/Page%20Scraper.js)
+**Page Scraper** - Create an application which connects to a site and pulls out all links, or images, and saves them to a list. *Optional: Organize the indexed content and don’t allow duplicates. Have it put the results into an easily searchable index file.* [(JS)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/JS/Web/Page%20Scraper.js)
 
 **Online White Board** - Create an application which allows you to draw pictures, write notes and use various colors to flesh out ideas for projects. *Optional: Add feature to invite friends to collaborate on a white board online.*
 
