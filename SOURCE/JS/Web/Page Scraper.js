@@ -1,6 +1,6 @@
 /**
  * Page Scraper: pulls all links and images from website
- * (use io.js to run)
+ * (npm install jsdom, use io.js to run)
  */
 "use strict";
 
