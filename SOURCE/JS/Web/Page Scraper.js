@@ -14,11 +14,36 @@ var rl = readline.createInterface({
 	output: process.stdout
 });
 
+// Utilities
+var NOOP = function () {};
+
+// Handler functions
+var Handler = {};
+
+Handler.question = function (ask) {
+	return new Promise(function (resolve, reject) {
+		rl.question(ask, function (p) {
+			resolve(p);
+		});
+	});
+};
+
+Handler.jsdom = function (page) {
+	return new Promise(function (resolve, reject) {
+		jsdom.env({
+			url: page,
+			done: resolve
+		});
+	});
+}
+
+// The main application
 var Application = function () {
 	this.links = [];
 	this.images = [];
 	this.page = undefined;
 }
+
 Application.prototype.main = function () {
 	var self = this;
 	
@@ -26,39 +51,37 @@ Application.prototype.main = function () {
 	console.log("PAGE SCRAPER");
 	console.log("------------------------");
 
-	rl.question("Enter page to pull: ", function (p) {
+	Handler.question("Enter page to pull: ").then(function (result) {
 		self.page = p;
 		self.pullPage();
 	});
 }
+
 Application.prototype.pullPage = function () {
 	var self = this;
 	
-	jsdom.env({
-		url: self.page,
-		done: function (errors, window) {
-			var document = window.document;
+	Handler.jsdom(self.page).then(function (errors, window) {
+		var document = window.document;
 			
-			// Search for all "a" elements
-			var aList = document.getElementsByTagName("a");
-			Array.prototype.forEach.call(aList, function (elem) {
-				if (typeof elem.href === 'string' && self.links.indexOf(elem.href) < 0) {
-					self.links.push(elem.href);
-				}
-			});
-			
-			// Search for all "img" elements
-			var imgList = document.getElementsByTagName("img");
-			Array.prototype.forEach.call(imgList, function (elem) {
-				if (typeof elem.src === 'string' && self.images.indexOf(elem.src) < 0) {
-					self.images.push(elem.src);
-				}
-			});
-			
-			self.scrapped();
-			
-			window.close();
-		}
+		// Search for all "a" elements
+		var aList = document.getElementsByTagName("a");
+		Array.prototype.forEach.call(aList, function (elem) {
+			if (typeof elem.href === 'string' && self.links.indexOf(elem.href) < 0) {
+				self.links.push(elem.href);
+			}
+		});
+		
+		// Search for all "img" elements
+		var imgList = document.getElementsByTagName("img");
+		Array.prototype.forEach.call(imgList, function (elem) {
+			if (typeof elem.src === 'string' && self.images.indexOf(elem.src) < 0) {
+				self.images.push(elem.src);
+			}
+		});
+		
+		window.close();
+	}).then(function () {
+		self.scrapped();
 	});
 }
 	
@@ -74,7 +97,7 @@ Application.prototype.scrapped = function () {
 	console.log("3: Save to file");
 	console.log("4: Exit");
 	
-	rl.question("> ", function (key) {
+	Handler.question("> ").then(function (key) {
 		switch (key) {
 			case "1":
 				self.viewLinks();
@@ -103,7 +126,6 @@ Application.prototype.viewLinks = function () {
 	
 	console.log("------------------------");
 	console.log("(Showed " + this.links.length + " links)");
-	return;
 }
 
 Application.prototype.viewImages = function () {
@@ -111,14 +133,13 @@ Application.prototype.viewImages = function () {
 	
 	console.log("------------------------");
 	console.log("(Showed " + this.images.length + " images)");
-	return;
 }
 
 Application.prototype.saveToFile = function () {
 	var self = this;
 	console.log();
 	
-	rl.question("Enter file name: ", function (p) {
+	Handler.question("Enter file name: ").then(function (p) {
 		if (!p.length) p = "page.txt";
 		
 		var data = "";

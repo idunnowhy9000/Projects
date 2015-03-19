@@ -39,3 +39,6 @@ nosetests.xml
 *.komodoproject
 
 .DS_Store
+
+# Node Modules
+node_modules/
