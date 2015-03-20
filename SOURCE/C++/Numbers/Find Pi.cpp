@@ -29,4 +29,6 @@ int main(){
 
 	std::cout << "\nPi calculated:\n";
 	std::cout << std::fixed << std::setprecision(a) << piFind(x);
+	
+	return 0;
 }

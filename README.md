@@ -36,11 +36,11 @@ Numbers
 
 **Find PI to the Nth Digit** - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Find%20Pi.cpp)
 
-**Find e to the Nth Digit** - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go. [(Python)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Numbers/Find%20e.cpp)
+**Find e to the Nth Digit** - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go. [(Python)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Numbers/Find%20e.py)
 
 **Fibonacci Sequence** - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Fibbonacci%20Sequence.cpp)
 
-**Prime Factorization** - Have the user enter a number and find all Prime Factors (if there are any) and display them.
+**Prime Factorization** - Have the user enter a number and find all Prime Factors (if there are any) and display them. [(Python)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Numbers/Prime%20Factors.py)
 
 **Next Prime Number** - Have the program find prime numbers until the user chooses to stop asking for the next one.
 
