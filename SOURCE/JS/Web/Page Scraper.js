@@ -17,19 +17,17 @@ var rl = readline.createInterface({
 // Handler functions
 var Handler = {};
 
-Handler.question = function (ask) {
-	return new Promise(function (resolve, reject) {
-		rl.question(ask, function (p) {
-			resolve(p);
-		});
-	});
-};
-
 Handler.jsdom = function (page) {
 	return new Promise(function (resolve, reject) {
 		jsdom.env({
 			url: page,
-			done: resolve
+			done: function (errors, window) {
+				if (errors && errors.length > 0) {
+					reject(errors);
+				} else {
+					resolve(window);
+				}
+			}
 		});
 	});
 }
@@ -48,8 +46,8 @@ Application.prototype.main = function () {
 	console.log("PAGE SCRAPER");
 	console.log("------------------------");
 
-	Handler.question("Enter page to pull: ").then(function (result) {
-		self.page = p;
+	rl.question("Enter page to pull: ", function (result) {
+		self.page = result;
 		self.pullPage();
 	});
 }
@@ -57,9 +55,9 @@ Application.prototype.main = function () {
 Application.prototype.pullPage = function () {
 	var self = this;
 	
-	Handler.jsdom(self.page).then(function (errors, window) {
+	Handler.jsdom(self.page).then(function (window) {
 		var document = window.document;
-			
+		
 		// Search for all "a" elements
 		var aList = document.getElementsByTagName("a");
 		Array.prototype.forEach.call(aList, function (elem) {
@@ -76,25 +74,25 @@ Application.prototype.pullPage = function () {
 			}
 		});
 		
-		window.close();
-	}).then(function () {
+		console.log("Page \"" + self.page + "\" pulled. (" + self.links.length + " links and " + self.images.length + " images)");
 		self.scrapped();
+		
+		window.close();
+	}).catch(function (reason) {
+		console.log("\nErrors occurred:\n" + reason.join("\n") + "\n");
 	});
 }
 	
 Application.prototype.scrapped = function () {
 	var self = this;
 	
-	console.log("Page \"" + this.page + "\" pulled. (" + this.links.length + " links and " + this.images.length + " images)");
-	
-	console.log();
 	console.log("Options");
 	console.log("1: View all links");
 	console.log("2: View all images");
 	console.log("3: Save to file");
 	console.log("4: Exit");
 	
-	Handler.question("> ").then(function (key) {
+	rl.question("> ", function (key) {
 		switch (key) {
 			case "1":
 				self.viewLinks();
@@ -136,7 +134,7 @@ Application.prototype.saveToFile = function () {
 	var self = this;
 	console.log();
 	
-	Handler.question("Enter file name: ").then(function (p) {
+	rl.question("Enter file name: ", function (p) {
 		if (!p.length) p = "page.txt";
 		
 		var data = "";
