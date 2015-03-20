@@ -14,9 +14,6 @@ var rl = readline.createInterface({
 	output: process.stdout
 });
 
-// Utilities
-var NOOP = function () {};
-
 // Handler functions
 var Handler = {};
 
