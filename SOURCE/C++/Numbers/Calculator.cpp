@@ -2,112 +2,103 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <locale>
 
-/**
- * Token Classes:
- * Represents a token
- */
-class Token {
-private:
-	std::string source, type;
-};
+std::string source;
+int pos = 0;
 
-/**
- * OPToken:
- * Represents an operator token
- */
-class OPToken: public Token {
-public:
-	OPToken(std::string s): source(s), type("OP") {};
-}
+void prepare() {};
 
-/**
- * NumToken:
- * Represents an number token
- */
-class NumToken: public Token {
-private:
-	int source, type;
-public:
-	NumToken(std::string s) {
-		source = atoi(s.c_str());
-		type = "NUM";
-	};
-}
+char peek();
+char consume(char c);
 
-/**
- * Lexer Class:
- * Lexes a string of source and returns a vector of tokens
- */
-class Lexer {
-private:
-	std::string source;
-	std::vector
-public:
-	Lexer(std::string s): source(s) {};
-	
-	void parse() {
-		
-	};
-};
+bool isNum(char c);
 
-/**
- * Parser Class:
- * Uses the Shunting-yard algorithm to parse a stream of tokens.
- */
-class Parser {
-	
-};
+int expr();
+int additive();
+int multiplicative();
+int primary();
 
-/**
- * ReversePolish Class:
- * Parses a Token stream
- */
-class ReversePolish {
-private:
-	std::vector<Token> input_tokens;
-	int pos;
-	
-	std::vector<int> stack;
-	int result;
-public:
-	ReversePolish(std::vector<Token> t): input_tokens(t) {};
-	
-	void parse() {
-		while (pos < input_tokens.size()) {
-			Token cur_token = input_tokens.at(pos++);
-			
-			if (cur_token.type == "NUM") {
-				stack.push_back(cur_token.source);
-			} else {
-				int arg2 = stack.back();
-				stack.pop_back();
-				int arg1 = stack.back();
-				stack.pop_back();
-				
-				if (cur_token.source == "+") {
-					stack.push_back(arg1 + arg2);
-				} else if (cur_token.source == "-") {
-					stack.push_back(arg1 - arg2);
-				} else if (cur_token.source == "/") {
-					stack.push_back(arg1 / arg2);
-				} else if (cur_token.source == "*") {
-					stack.push_back(arg1 * arg2);
-				} else {
-					std::cerr << "Error: Unknown operator \"" << cur_token.source << "\"\n";
-				}
-			}
-		}
-		
-		if (stack.size() == 1) {
-			result = stack.back();
-		} else {
-			std::cerr << "User input has too many values.\n";
-		}
-	};
-};
+int PLUS(int x, int y);
+int MINUS(int x, int y);
+int MULT(int x, int y);
+int DIV(int x, int y);
 
 int main() {
-	
-	ReversePolish rpolish;
+	std::cout << "Enter equation:\n";
+	std::getline(std::cin, source);
+
+	prepare();
+	std::cout << "Result: " << expr();
+
+	return 0;
+};
+
+char peek() {
+	return source[pos];
+};
+
+char consume(char consumer = '\0') {
+	if (consumer && source[pos] != consumer) {
+		// ERROR
+	}
+
+	pos += 1;
+	return source[pos];
 }
+
+bool isNum(char c) {
+	return std::isdigit(c);
+};
+
+int expr() {
+	return additive();
+};
+
+int additive() {
+	int x = multiplicative(), y;
+	while (peek() == '+' || peek() == '-') {
+		char op = consume();
+		y = multiplicative();
+
+		if (peek() == '+') {
+			x = PLUS(x, y);
+		} else if (peek() == '-') {
+			x = MINUS(x, y);
+		}
+	}
+};
+
+int multiplicative() {
+	int x = primary(), y;
+	while (peek() == '*' || peek() == '/') {
+		char op = consume();
+		y = primary();
+
+		if (op == '*') {
+			x = MULT(x, y);
+		} else if (peek() == '/') {
+			x = DIV(x, y);
+		}
+	}
+};
+
+int primary() {
+	char t = peek();
+	if (t == '(') {
+		consume();
+		int result = expr();
+		consume(')');
+		return result;
+	} else if (isNum(t)) {
+		consume(t);
+		return 1;
+    } else {
+		// ERROR
+	}
+};
+
+int PLUS(int x, int y) {return x + y;};
+int MULT(int x, int y) {return x * y;};
+int DIV(int x, int y) {return x / y;};
+int MINUS(int x, int y) {return x - y;};
