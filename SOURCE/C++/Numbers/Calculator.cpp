@@ -1,104 +1,77 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <cstdlib>
-#include <locale>
+#include <ctype.h>
 
-std::string source;
-int pos = 0;
-
-void prepare() {};
-
-char peek();
-char consume(char c);
-
-bool isNum(char c);
-
-int expr();
-int additive();
-int multiplicative();
-int primary();
-
-int PLUS(int x, int y);
-int MINUS(int x, int y);
-int MULT(int x, int y);
-int DIV(int x, int y);
+class Calculator {
+private:
+	std::string source;
+	int pos;
+public:
+	Calculator(std::string s) {
+		source = s;
+		pos = 0;
+	};
+	
+	// Utilities
+	char peek() {
+		return source[pos];
+	};
+	
+	bool isNumber (char ch) {
+		return isdigit(ch);
+	};
+	
+	bool eof () {
+		return pos > source.length();
+	};
+	
+	// Parser
+	int parseAdditive() {
+		
+	};
+	
+	int parseMultiplicative() {
+		
+	};
+	
+	int parsePrimary() {
+		if (peek() == "(") {
+			int expr = parse();
+			consume(')');
+			return expr;
+		} else if (isNumber(peek())) {
+			return parseNum();
+		} else {
+			throw "Unexpected token.";
+		}
+	};
+	
+	int parseNum() {
+		std::string source;
+		int value;
+		
+		while (!eof()) {
+			if (isNumber(peek())) {
+				source += source[pos++];
+			}
+		}
+		
+		value = atoi(source.c_str());
+		return value;
+	};
+	
+	int parse() {
+		return parseAdditive();
+	};
+};
 
 int main() {
+	std::string source;
+	
 	std::cout << "Enter equation:\n";
 	std::getline(std::cin, source);
 
-	prepare();
-	std::cout << "Result: " << expr();
+	Calculator calc(source);
 
 	return 0;
 };
-
-char peek() {
-	return source[pos];
-};
-
-char consume(char consumer = '\0') {
-	if (consumer && source[pos] != consumer) {
-		// ERROR
-	}
-
-	pos += 1;
-	return source[pos];
-}
-
-bool isNum(char c) {
-	return std::isdigit(c);
-};
-
-int expr() {
-	return additive();
-};
-
-int additive() {
-	int x = multiplicative(), y;
-	while (peek() == '+' || peek() == '-') {
-		char op = consume();
-		y = multiplicative();
-
-		if (peek() == '+') {
-			x = PLUS(x, y);
-		} else if (peek() == '-') {
-			x = MINUS(x, y);
-		}
-	}
-};
-
-int multiplicative() {
-	int x = primary(), y;
-	while (peek() == '*' || peek() == '/') {
-		char op = consume();
-		y = primary();
-
-		if (op == '*') {
-			x = MULT(x, y);
-		} else if (peek() == '/') {
-			x = DIV(x, y);
-		}
-	}
-};
-
-int primary() {
-	char t = peek();
-	if (t == '(') {
-		consume();
-		int result = expr();
-		consume(')');
-		return result;
-	} else if (isNum(t)) {
-		consume(t);
-		return 1;
-    } else {
-		// ERROR
-	}
-};
-
-int PLUS(int x, int y) {return x + y;};
-int MULT(int x, int y) {return x * y;};
-int DIV(int x, int y) {return x / y;};
-int MINUS(int x, int y) {return x - y;};
