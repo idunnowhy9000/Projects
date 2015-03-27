@@ -81,7 +81,7 @@ public:
 	};
 
 	float parseNum() {
-		std::string source, dec;
+		std::string source;
 		float value;
 
 		while (!eof()) {
