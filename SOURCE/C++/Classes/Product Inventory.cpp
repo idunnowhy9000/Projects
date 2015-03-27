@@ -66,4 +66,5 @@ int main() {
 	inventory.add(orange);
 	std::cout << inventory.size() << " item(s) in inventory.\n";
 	std::cout << "Costs a total of " << inventory.getTotalPrice() << ".\n";
+	return 0;
 }
