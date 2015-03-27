@@ -37,4 +37,5 @@ int main() {
 	total = calcCost(cost, width, height);
 
 	std::cout << "Total cost of tiling is " << "$" << (int)round(total);
+	return 0;
 }

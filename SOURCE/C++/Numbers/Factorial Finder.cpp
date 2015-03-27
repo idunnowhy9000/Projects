@@ -32,4 +32,5 @@ int main() {
 
 	std::cout << "\n\nUsing recursion:\n";
 	recursionFact(x);
+	return 0;
 }

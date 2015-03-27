@@ -19,7 +19,7 @@ void flip (int count) {
 }
 
 int main() {
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 	
 	int coinflip;
 	std::string str_coinflip;

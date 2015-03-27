@@ -18,4 +18,5 @@ int main(){
 		std::cout << "\n" << str << " is a palindrome.";
 	}
 	else std::cout << "\n" << str << " isn't a palindrome";
+	return 0;
 }

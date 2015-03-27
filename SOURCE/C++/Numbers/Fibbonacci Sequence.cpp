@@ -49,5 +49,6 @@ int main(){
 
 	std::cout << "\n\nUsing recursion:\n";
 	recursionFib(x);
+	return 0;
 }
 

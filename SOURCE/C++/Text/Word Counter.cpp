@@ -53,4 +53,5 @@ int main() {
 	fs << mapToCSV(words);
 	
 	fs.close();
+	return 0;
 }

@@ -20,4 +20,5 @@ int main(){
 	}
 
 	std::cout << "\nPigified \"" << str << "\": " << pig;
+	return 0;
 }

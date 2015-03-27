@@ -21,4 +21,5 @@ int main(){
 	}
 	
 	std::cout << "\nWord \"" << word << "\"" << " has " << vowelsCount << " vowels.";
+	return 0;
 }
