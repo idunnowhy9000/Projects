@@ -2,10 +2,10 @@
  * Page Scraper: pulls all links and images from website
  * (npm install jsdom, use io.js to run)
  */
+(function () {
 "use strict";
 
 var fs = require("fs"),
-	http = require("http"),
 	readline = require('readline'),
 	jsdom = require("jsdom");
 
@@ -30,16 +30,16 @@ Handler.jsdom = function (page) {
 			}
 		});
 	});
-}
+};
 
 // The main application
-var Application = function () {
-	this.links = [];
-	this.images = [];
-	this.page = undefined;
-}
+var Application = {
+	links: [],
+	images: [],
+	page: undefined
+};
 
-Application.prototype.main = function () {
+Application.main = function () {
 	var self = this;
 	
 	console.log("------------------------");
@@ -50,9 +50,9 @@ Application.prototype.main = function () {
 		self.page = result;
 		self.pullPage();
 	});
-}
+};
 
-Application.prototype.pullPage = function () {
+Application.pullPage = function () {
 	var self = this;
 	
 	Handler.jsdom(self.page).then(function (window) {
@@ -81,12 +81,12 @@ Application.prototype.pullPage = function () {
 	}).catch(function (reason) {
 		console.log("\nErrors occurred:\n" + reason.join("\n") + "\n");
 	});
-}
+};
 	
-Application.prototype.scrapped = function () {
+Application.scrapped = function () {
 	var self = this;
 	
-	console.log("Options");
+	console.log("\nOptions");
 	console.log("1: View all links");
 	console.log("2: View all images");
 	console.log("3: Save to file");
@@ -103,7 +103,6 @@ Application.prototype.scrapped = function () {
 			case "3":
 				self.saveToFile();
 				return;
-			break;
 			case "4":
 				process.exit();
 			break;
@@ -114,23 +113,23 @@ Application.prototype.scrapped = function () {
 		
 		self.scrapped();
 	});
-}
+};
 
-Application.prototype.viewLinks = function () {
+Application.viewLinks = function () {
 	console.log(this.links.join("\n"));
 	
 	console.log("------------------------");
 	console.log("(Showed " + this.links.length + " links)");
-}
+};
 
-Application.prototype.viewImages = function () {
+Application.viewImages = function () {
 	console.log(this.images.join("\n"));
 	
 	console.log("------------------------");
 	console.log("(Showed " + this.images.length + " images)");
-}
+};
 
-Application.prototype.saveToFile = function () {
+Application.saveToFile = function () {
 	var self = this;
 	console.log();
 	
@@ -155,7 +154,8 @@ Application.prototype.saveToFile = function () {
 			self.scrapped();
 		});
 	});
-}
+};
 
-var app = new Application();
-app.main();
+Application.main();
+  
+})();
