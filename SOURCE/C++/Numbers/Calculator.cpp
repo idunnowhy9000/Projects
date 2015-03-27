@@ -115,7 +115,7 @@ public:
 int main() {
 	std::string source;
 
-	std::cout << "Enter equation:\n";
+	std::cout << "Enter equation (do not include space):\n";
 	std::getline(std::cin, source);
 
 	Calculator calc(source);
