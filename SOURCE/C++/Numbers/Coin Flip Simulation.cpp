@@ -33,4 +33,5 @@ int main() {
 	
 	std::cout << "\nFlipped " << heads << " heads, " << tails << " tails.";
 	std::cout << "\nTotal of " << (heads + tails) << " times.";
+	return 0;
 }
