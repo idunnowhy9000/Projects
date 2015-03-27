@@ -5,12 +5,13 @@ def encrypt(text, shift):
 		raise ValueError("Shift key must be between 1 and 25.")
 	
 	i, enc = 0, ""
+	text = text.upper()
 	
 	while i < len(text):
 		if not (text[i].upper() in alphabet):
 			enc += text[i]
 		else:
-			enc += alphabet[(alphabet.index(text[i].upper()) + shift) % 26]
+			enc += alphabet[(alphabet.index(text[i]) + shift) % 26]
 		i += 1
 	
 	return enc

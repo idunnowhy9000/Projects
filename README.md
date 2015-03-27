@@ -83,9 +83,7 @@ Classic Algorithms
 
 **Collatz Conjecture** - Start with a number *n > 1*. Find the number of steps it takes to reach one using the following process: If *n* is even, divide it by 2. If *n* is odd, multiply it by 3 and add 1. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Classic%20Algorithms/Collatz%20Conjecture.cpp)
 
-**Sorting** - Implement two types of sorting algorithms: Merge sort and bubble sort.
-
-- [(Python (Merge Sort))](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Classic%20Algorithms/Merge%20Sort.py)
+**Sorting** - Implement two types of sorting algorithms: Merge sort and bubble sort. *Python [(Merge Sort)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Classic%20Algorithms/Merge%20Sort.py) [(Bubble Sort)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Classic%20Algorithms/Bubble%20Sort.py)*
 
 **Closest pair problem** - The closest pair of points problem or closest pair problem is a problem of computational geometry: given *n* points in metric space, find a pair of points with the smallest distance between them.
 
@@ -136,7 +134,7 @@ Text
 
 **Guestbook / Journal** - A simple application that allows people to add comments or write journal entries. It can allow comments or not and timestamps for all entries. Could also be made into a shout box. *Optional: Deploy it on Google App Engine or Heroku or any other PaaS (if possible, of course).*
 
-**Vigenere / Vernam / Ceasar Ciphers** - Functions for encrypting and decrypting data messages. Then send them to a friend.
+**Vigenere / Vernam Ciphers** - Functions for encrypting and decrypting data messages. Then send them to a friend.
 
 **Regex Query Tool** - A tool that allows the user to enter a text string and then in a separate control enter a regex pattern. It will run the regular expression against the source text and return any matches or flag errors in the regular expression.
 
@@ -267,4 +265,4 @@ Graphics and Multimedia
 Security
 -------------
 
-**Caesar cipher** - Implement a Caesar cipher, both encoding and decoding. The key is an integer from 1 to 25. This cipher rotates the letters of the alphabet (A to Z). The encoding replaces each letter with the 1st to 25th next letter in the alphabet (wrapping Z to A). So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC". This simple "monoalphabetic substitution cipher" provides almost no security, because an attacker who has the encoded message can either use frequency analysis to guess the key, or just try all 25 keys.
+**Caesar cipher** - Implement a Caesar cipher, both encoding and decoding. The key is an integer from 1 to 25. This cipher rotates the letters of the alphabet (A to Z). The encoding replaces each letter with the 1st to 25th next letter in the alphabet (wrapping Z to A). So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC". This simple "monoalphabetic substitution cipher" provides almost no security, because an attacker who has the encoded message can either use frequency analysis to guess the key, or just try all 25 keys. [(Python (Caesar cipher))](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Security/Caesar%20cipher.py)
