@@ -76,7 +76,7 @@ Numbers
 
 **Limit Calculator** - Ask the user to enter f(x) and the limit value, then return the value of the limit statement *Optional: Make the calculator capable of supporting infinite limits.*
 
-**Fast Exponentiation** - Ask the user to enter 2 integers a and b and output a^b (i.e. pow(a,b)) in O(lg n) time complexity.
+**Fast Exponentiation** - Ask the user to enter 2 integers a and b and output a^b (i.e. pow(a,b)) in O(lg n) time complexity. [(C++ (WIP))](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Fast%20Exponentiation.cpp)
 
 Classic Algorithms
 -----------------

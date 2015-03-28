@@ -24,7 +24,7 @@ public:
 	};
 
 	bool eof () {
-		return (unsigned int)pos >= source.length();
+		return pos >= (int)source.length();
 	};
 
 	char consume(char ch) {
@@ -66,6 +66,7 @@ public:
 
 			consumeWhitespace();
 		}
+
 		return first;
 	};
 
@@ -91,18 +92,22 @@ public:
 	};
 
 	float parsePrimary() {
-		if (peek() == '(') {
+		char p = peek();
+		if (p == '(') { // Enclosed primaries
 			consume();
 
 			consumeWhitespace();
 
-			int expr = parseExpression();
+			float expr = parseExpression();
 
 			consumeWhitespace();
 
 			consume(')');
 			return expr;
-		} else if (isNumber(peek())) {
+		} else if (p == '-') { // Negative numbers
+			consume();
+			return -parseExpression();
+		} else if (isNumber(p)) { // Numbers
 			return parseNum();
 		} else {
 			throw std::runtime_error("Unexpected token.");
