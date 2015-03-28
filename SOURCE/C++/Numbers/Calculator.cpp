@@ -20,7 +20,7 @@ public:
 	};
 
 	bool isNumber (char ch) {
-		return isdigit(ch);
+		return std::isdigit(ch);
 	};
 
 	bool eof () {
@@ -38,16 +38,33 @@ public:
 		return source[pos++];
 	};
 
+	void consumeWhitespace() {
+		while (!eof()) {
+			if ( peek() == ' ' || peek() == '	' || peek() == '\n' || peek() == '\r' ) {
+				pos++;
+			} else {
+				break;
+			}
+		}
+	};
+
 	// Parser
 	float parseAdditive() {
 		float first = parseMultiplicative(), next;
 		char op;
+
+		consumeWhitespace();
+
 		while (peek() == '+' || peek() == '-') {
 			op = consume();
+			consumeWhitespace();
+
 			next = parseMultiplicative();
 
 			if (op == '+') first = first + next;
 			if (op == '-') first = first - next;
+
+			consumeWhitespace();
 		}
 		return first;
 	};
@@ -55,20 +72,34 @@ public:
 	float parseMultiplicative() {
 		float first = parsePrimary(), next;
 		char op;
+
+		consumeWhitespace();
+
 		while (peek() == '*' || peek() == '/') {
 			op = consume();
+			consumeWhitespace();
+
 			next = parsePrimary();
 
 			if (op == '*') first = first * next;
 			if (op == '/') first = first / next;
+
+			consumeWhitespace();
 		}
+
 		return first;
 	};
 
 	float parsePrimary() {
 		if (peek() == '(') {
-			consume('(');
+			consume();
+
+			consumeWhitespace();
+
 			int expr = parseExpression();
+
+			consumeWhitespace();
+
 			consume(')');
 			return expr;
 		} else if (isNumber(peek())) {
@@ -93,10 +124,10 @@ public:
 		}
 
 		if (peek() == '.') {
-			source += consume('.');
+			source += consume();
 			while (!eof()) {
 				if (isNumber(peek())) {
-					source += this->source[pos++];
+					source += consume();
 				} else {
 					break;
 				}
@@ -115,7 +146,7 @@ public:
 int main() {
 	std::string source;
 
-	std::cout << "Enter equation (do not include space):\n";
+	std::cout << "Enter equation: ";
 	std::getline(std::cin, source);
 
 	Calculator calc(source);
