@@ -1,3 +1,25 @@
+/**
+ * Calculator: A simple calculator to do basic operators.
+ * Make it a scientific calculator for added complexity.
+ * 
+ * EBNF Grammar of Calculator:
+
+Expression
+	= Additive;
+
+Additive
+	= Multiplicative, { ( '+' | '-' ), Multiplicative };
+
+Multiplicative
+	= Primary, { ( '+' | '-' ), Primary };
+
+Primary
+	= ( '(', Expression, ')' ) | ( '-', Expression ) | Number;
+
+Number
+	= { DecimalDigit }, ['.', { DecimalDigit }];
+
+ */
 #include <iostream>
 #include <string>
 #include <ctype.h>

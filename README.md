@@ -124,7 +124,7 @@ Text
 
 **Check if Palindrome** - Checks if the string entered by the user is a palindrome. That is that it reads the same forwards as backwards like “racecar” [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Palindrome%20Checker.cpp)
 
-**Count Words in a String** - Counts the number of individual words in a string. For added complexity read these strings in from a text file and generate a summary. [(C++ (WIP))](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Word%20Counter.cpp)
+**Count Words in a String** - Counts the number of individual words in a string. For added complexity read these strings in from a text file and generate a summary. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Text/Word%20Counter.cpp)
 
 **Text Editor** - Notepad style application that can open, edit, and save text documents. *Optional: Add syntax highlighting and other features.*
 
