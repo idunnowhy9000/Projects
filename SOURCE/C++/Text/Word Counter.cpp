@@ -1,5 +1,5 @@
 /**
- * Word Counter (WIP): Counts the number of individual words in a string. Generates a summary of words to a CSV file.
+ * Word Counter: Counts the number of individual words in a string. Generates a summary of words to a CSV file.
  */
 #include <iostream>
 #include <map>
@@ -46,6 +46,7 @@ int main(int argc, char *argv[]) {
 
 		std::cout << "Examples:\n";
 		std::cout << "	'Word Counter' \"Hello World\" > words.csv\n";
+		std::cout << "	cat file.txt | 'Word Counter' > words.csv\n";
 
 		return 0;
 	}

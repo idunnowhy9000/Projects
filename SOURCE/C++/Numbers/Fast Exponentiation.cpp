@@ -2,8 +2,8 @@
 #include <string>
 #include <cstdlib>
 
-int squareExponent(int x, int n) {
-	int result = 1;
+unsigned long long squareExponent(int x, int n) {
+	unsigned long long result = 1;
 	while (n != 0) {
 		if (n % 2 == 1) {
 			result *= x;
@@ -23,7 +23,7 @@ int main() {
 	std::getline(std::cin, x_str);
 
 	std::cout << "Enter base y: ";
-	std::getline(std::cin, x_str);
+	std::getline(std::cin, y_str);
 
 	x = atoi(x_str.c_str());
 	y = atoi(y_str.c_str());
