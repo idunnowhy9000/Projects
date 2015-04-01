@@ -42,7 +42,7 @@ Numbers
 
 **Prime Factorization** - Have the user enter a number and find all Prime Factors (if there are any) and display them. [(Python)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Numbers/Prime%20Factors.py)
 
-**Next Prime Number** - Have the program find prime numbers until the user chooses to stop asking for the next one.
+**Next Prime Number** - Have the program find prime numbers until the user chooses to stop asking for the next one. [(Python)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/Python/Numbers/Next%20Prime%20Number.py)
 
 **Find Cost of Tile to Cover W x H Floor** - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user. [(C++)](https://github.com/idunnowhy9000/Projects/blob/master/SOURCE/C%2B%2B/Numbers/Tile%20Cost.cpp)
 

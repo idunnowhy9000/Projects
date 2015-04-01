@@ -1,7 +1,8 @@
 /**
  * Calculator: A simple calculator to do basic operators.
  * Make it a scientific calculator for added complexity.
- * 
+ *
+ * Whitespace is ignored by the parser.
  * EBNF Grammar of Calculator:
 
 Expression
@@ -14,17 +15,28 @@ Multiplicative
 	= Primary, { ( '+' | '-' ), Primary };
 
 Primary
-	= ( '(', Expression, ')' ) | ( '-', Expression ) | Number;
+	= Number | Function | ( '-', Expression ) | ( '(', Expression, ')' );
 
-Number
-	= { DecimalDigit }, ['.', { DecimalDigit }];
+Function
+	= (Variable, '()') | (Variable, '(', Arguments, ')');
+
+Arguments
+	= Expression, {',', Expression};
+
+Number = { DecimalDigit }, ['.', { DecimalDigit }];
+
+Variable = Letter, { Letter | DecimalDigit };
+
+DecimalDigit = '0' | ... | '9';
+
+Letter = 'a' | ... | 'z' | 'A' | ... | 'z';
 
  */
 #include <iostream>
 #include <string>
-#include <ctype.h>
 #include <cstdlib>
-#include <stdexcept>
+#include <cmath>
+#include <vector>
 
 class Calculator {
 private:
@@ -42,7 +54,11 @@ public:
 	};
 
 	bool isNumber (char ch) {
-		return std::isdigit(ch);
+		return 48 <= ch && ch <= 57;
+	};
+
+	bool isLetter (char ch) {
+		return (97 <= ch && ch <= 122) || (65 <= ch && ch <= 90);
 	};
 
 	bool eof () {
@@ -51,7 +67,7 @@ public:
 
 	char consume(char ch) {
 		if (peek() != ch) {
-			throw std::runtime_error("Expected " + ch);
+			std::cout << "Expected " << ch << ".\n";
 		}
 		return source[pos++];
 	};
@@ -115,7 +131,12 @@ public:
 
 	float parsePrimary() {
 		char p = peek();
-		if (p == '(') { // Enclosed primaries
+		if (isNumber(p)) { // Numbers
+			return parseNum();
+		} else if (p == '-') { // Negative numbers
+			consume();
+			return -parseExpression();
+		} else if (p == '(') { // Enclosed primaries
 			consume();
 
 			consumeWhitespace();
@@ -126,13 +147,105 @@ public:
 
 			consume(')');
 			return expr;
-		} else if (p == '-') { // Negative numbers
+		} else if (isLetter(p)) { // Variables
+			std::string var_name;
+			var_name += consume();
+
+			while (!eof()) {
+				if (isLetter(peek()) || isNumber(peek())) {
+					var_name += consume();
+				} else {
+					break;
+				}
+			}
+
+			consumeWhitespace();
+
+			if (peek() == '(') { // functions
+				return parseFunction(var_name);
+			}
+
+		}
+
+		return 0;
+	};
+
+	float parseFunction(std::string var_name) {
+		std::vector<float> arguments;
+
+		consume('(');
+		consumeWhitespace();
+
+		consumeWhitespace();
+		if (peek() == ')') {
 			consume();
-			return -parseExpression();
-		} else if (isNumber(p)) { // Numbers
-			return parseNum();
-		} else {
-			throw std::runtime_error("Unexpected token.");
+		} else { // arguments
+			arguments.push_back(parseExpression());
+			consumeWhitespace();
+
+			if (peek() != ')') {
+				while (peek() == ',') {
+					consume();
+					consumeWhitespace();
+
+					arguments.push_back(parseExpression());
+
+					consumeWhitespace();
+				}
+			}
+
+			consumeWhitespace();
+			consume(')');
+		}
+
+		if (var_name == "cos") {
+			return cos(arguments.front());
+		} else if (var_name == "sin") {
+			return sin(arguments.front());
+		} else if (var_name == "tan") {
+			return tan(arguments.front());
+		} else if (var_name == "acos") {
+			return acos(arguments.front());
+		} else if (var_name == "asin") {
+			return asin(arguments.front());
+		} else if (var_name == "atan") {
+			return atan(arguments.front());
+		} else if (var_name == "atan2") {
+			float a2 = arguments.back();
+			arguments.pop_back();
+
+			float a1 = arguments.back();
+			arguments.pop_back();
+
+			return atan2(a1, a2);
+		} else if (var_name == "cosh") {
+			return cosh(arguments.front());
+		} else if (var_name == "sinh") {
+			return sinh(arguments.front());
+		} else if (var_name == "tanh") {
+			return tanh(arguments.front());
+		} else if (var_name == "acosh") {
+			return acosh(arguments.front());
+		} else if (var_name == "asinh") {
+			return asinh(arguments.front());
+		} else if (var_name == "atanh") {
+			return atanh(arguments.front());
+		} else if (var_name == "exp") {
+			return exp(arguments.front());
+		} else if (var_name == "log") {
+			return log(arguments.front());
+		} else if (var_name == "log10") {
+			return log10(arguments.front());
+		} else if (var_name == "pow") {
+			float a2 = arguments.back();
+			arguments.pop_back();
+
+			float a1 = arguments.back();
+			arguments.pop_back();
+
+			return pow(a1, a2);
+		} else if (var_name == "sqrt") {
+			return sqrt(arguments.front());
 		}
 
 		return 0;
