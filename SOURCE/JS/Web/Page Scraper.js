@@ -32,11 +32,33 @@ Handler.jsdom = function (page) {
 	});
 };
 
+Handler.question = function (question) {
+	return new Promise(function (resolve) {
+		rl.question(question, function (response) {
+			resolve(response);
+		});
+	});
+};
+
 // The main application
 var Application = {
 	links: [],
 	images: [],
 	page: undefined
+};
+
+// Filter duplicates from array
+// Source: http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array#answer-9229821
+Application.filter = function (a) {	
+	var seen = {}, out = [], len = a.length, j = 0, i = 0;
+	for(i = 0; i < len; i++) {
+		var item = a[i];
+		if(seen[item] !== 1) {
+			seen[item] = 1;
+			out[j++] = item;
+		}
+	}
+	return out;
 };
 
 Application.main = function () {
@@ -46,7 +68,7 @@ Application.main = function () {
 	console.log("PAGE SCRAPER");
 	console.log("------------------------");
 
-	rl.question("Enter page to pull: ", function (result) {
+	Handler.question("Enter page to pull: ").then(function (result) {
 		self.page = result;
 		self.pullPage();
 	});
@@ -74,12 +96,17 @@ Application.pullPage = function () {
 			}
 		});
 		
+		// Disallow duplicates
+		self.links = self.filter(self.links);
+		self.images = self.filter(self.images);
+		
 		console.log("Page \"" + self.page + "\" pulled. (" + self.links.length + " links and " + self.images.length + " images)");
 		self.scrapped();
 		
 		window.close();
 	}).catch(function (reason) {
 		console.log("\nErrors occurred:\n" + reason.join("\n") + "\n");
+		process.exit();
 	});
 };
 	
@@ -92,7 +119,7 @@ Application.scrapped = function () {
 	console.log("3: Save to file");
 	console.log("4: Exit");
 	
-	rl.question("> ", function (key) {
+	Handler.question("> ").then(function (key) {
 		switch (key) {
 			case "1":
 				self.viewLinks();
@@ -102,7 +129,6 @@ Application.scrapped = function () {
 			break;
 			case "3":
 				self.saveToFile();
-				return;
 			case "4":
 				process.exit();
 			break;
