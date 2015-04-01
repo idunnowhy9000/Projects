@@ -174,9 +174,9 @@ public:
 		std::vector<float> arguments;
 
 		consume('(');
+		
 		consumeWhitespace();
-
-		consumeWhitespace();
+		
 		if (peek() == ')') {
 			consume();
 		} else { // arguments
