@@ -13,6 +13,7 @@
 #include <unistd.h>
 #endif
 
+// Source: http://www.cplusplus.com/forum/unices/60161/#msg327292
 void sleep(int seconds) {
 	#ifdef __WIN32__
 		Sleep(seconds);
@@ -41,23 +42,24 @@ public:
 		std::getline(std::cin, s_str);
 		s = atoi(s_str.c_str());
 
-        std::cout << "\n";
+    	std::cout << "\nTimer started.\n";
 
-        seconds = (h * 3600) + (m * 60) + s;
+		seconds = (h * 3600) + (m * 60) + s;
 	};
 
 	void wait() {
 		sleep(seconds);
-		for (unsigned int repeat = 0; repeat < 5; repeat++) {
+		for (unsigned int r = 0; r < 5; r++) {
 			std::cout << '\a'; // beep character
 		}
-        std::cout << "Timer ended.\n";
+		
+    	std::cout << "Timer ended.\n\n";
 	};
 
 	int main() {
 		while (true) {
 			enterAlarm();
-            wait();
+			wait();
 		}
 
 		return 0;

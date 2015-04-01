@@ -15,7 +15,7 @@ Multiplicative
 	= Primary, { ( '+' | '-' ), Primary };
 
 Primary
-	= Number | Function | ( '-', Expression ) | ( '(', Expression, ')' );
+	= Number | ( '-', Expression ) | ( '(', Expression, ')' ) | Function;
 
 Function
 	= (Variable, '()') | (Variable, '(', Arguments, ')');
