@@ -99,8 +99,8 @@ public:
 
 			next = parseMultiplicative();
 
-			if (op == '+') first = first + next;
-			if (op == '-') first = first - next;
+			if (op == '+') first += next;
+			if (op == '-') first -= next;
 
 			consumeWhitespace();
 		}
@@ -120,8 +120,8 @@ public:
 
 			next = parsePrimary();
 
-			if (op == '*') first = first * next;
-			if (op == '/') first = first / next;
+			if (op == '*') first *= next;
+			if (op == '/') first /= next;
 
 			consumeWhitespace();
 		}
@@ -159,12 +159,9 @@ public:
 				}
 			}
 
-			consumeWhitespace();
-
 			if (peek() == '(') { // functions
 				return parseFunction(var_name);
 			}
-
 		}
 
 		return 0;
