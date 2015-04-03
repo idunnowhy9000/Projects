@@ -170,6 +170,7 @@ public:
 	float parseFunction(std::string var_name) {
 		std::vector<float> arguments;
 
+		consumeWhitespace();
 		consume('(');
 		
 		consumeWhitespace();

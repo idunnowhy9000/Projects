@@ -4,27 +4,21 @@
 #include <iostream>
 #include <map>
 #include <string>
-#include <fstream>
+#include <cstring>
 
-bool isspace(char ch) {
-	return ch == ' ' || ch == '	' || ch == '\r' || ch == '\n';
-};
+const char* SEPERATOR = " 	\r\n.,!:;\'\"-()[]";
 
 std::map<std::string, int> countWords(std::string str) {
 	std::map<std::string, int> map;
 	std::string word;
-	unsigned int i = 0;
 
-	for (; i < str.length(); i++) {
-		if (isspace(str[i]) || str[i] == '\0') {
-			map[word]++;
-			word = "";
-		} else {
-			word += str[i];
-		}
-	}
-	if (i == str.length()) {
-		map[word]++; // final word
+	char *c_str = new char [str.length()];
+	std::strcpy(c_str, str.c_str());
+
+	char *p = strtok(c_str, SEPERATOR);
+	while (p) {
+		map[p]++;
+		p = strtok(NULL, SEPERATOR);
 	}
 
 	return map;

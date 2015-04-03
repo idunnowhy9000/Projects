@@ -1,16 +1,20 @@
 /**
- * Fizz Buzz: Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
+ * Fizz Buzz: Write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
  */
 #include <iostream>
 #include <string>
 
 int main(){
 	for(int i = 0; i < 100; i++) {
-		std::string str = "";
-		if (i%3 == 0) str += "Fizz";
-		if (i%5 == 0) str += "Buzz";
-		
-		std::cout << str << "\n";
+		if (i % 3 == 0 && i % 5 == 0) {
+			std::cout << "FizzBuzz" << "\n";
+		} else if (i % 3 == 0) {
+			std::cout << "Fizz" << "\n";
+		} else if (i % 5 == 0) {
+			std::cout << "Buzz" << "\n";
+		} else {
+			std::cout << i << "\n";
+		}
 	}
 	
 	return 0;

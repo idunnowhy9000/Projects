@@ -5,36 +5,48 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <set>
 
-std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
-	std::stringstream ss(s);
-	std::string item;
-	while (std::getline(ss, item, delim)) {
-		elems.push_back(item);
+const char* SEPERATOR = " 	\r\n.,!:;\'\"-()[]";
+
+void filterDuplicates(std::vector<std::string> &v) {
+	std::vector<std::string> vec(v);
+	std::set<std::string> s( vec.begin(), vec.end() );
+	vec.assign( s.begin(), s.end() );
+	v = vec;
+}
+
+std::vector<std::string> splitWords(std::string str) {
+	std::vector<std::string> vec;
+	std::string word;
+
+	char *c_str = new char [str.length()];
+	std::strcpy(c_str, str.c_str());
+
+	char *p = strtok(c_str, SEPERATOR);
+	while (p) {
+		vec.assign(p);
+		p = strtok(NULL, SEPERATOR);
 	}
-	return elems;
-};
 
-std::vector<std::string> split(const std::string &s, char delim) {
-	std::vector<std::string> elems;
-	split(s, delim, elems);
-	return elems;
-};
+	filterDuplicates(vec);
+	return vec;
+}
 
 class InvertedIndex {
 private:
-	std::map<std::string> word_map;
-	std::vector<std::string> text;
+	std::map<std::string, std::vector<int>> word_map;
+	std::vector<std::string> texts;
 public:
 	InvertedIndex() {};
-	InvertedIndex(std::map<std::string> a, std::vector<std::string>): word_map(text) {};
 	
 	void addText(std::string _text) {
-		std::vector<std::string> words = split(_text, " ");
+		texts.assign(_text);
+		int pos = texts.length();
 		
-		text.push_back(_text);
-		for (std::string i = words.begin(); i != words.end(); i++) {
-			word_map[*i] = text.size();
+		std::vector<std::string> words = splitWords(texts);
+		for (auto const &i : words) {
+			word_map[i];
 		}
 	};
 };
@@ -42,14 +54,5 @@ public:
 int main() {
 	InvertedIndex index;
 	
-	std::cout << "(Press Ctrl+C to exit)";
-	
-	while (true) {
-		std::string text;
-		
-		std::cout << "\nEnter text to add: ";
-		std::getline(std::cin, text);
-		
-		std::cout << "\nAdded text to database.";
-	}
+	return 0;
 }
