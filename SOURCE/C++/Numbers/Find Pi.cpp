@@ -3,10 +3,7 @@
  */
 #include <iostream>
 #include <cmath>
-#include <stdlib.h>
 #include <string>
-#include <cstdlib>
-#include <iomanip>
 
 float piFind(int len) {
 	float pi;
@@ -25,10 +22,10 @@ int main(){
 	std::cout << "Enter length: ";
 	std::getline(std::cin, str_x);
 
-	x = atoi(str_x.c_str());
+	x = std::stoi(str_x);
 
 	std::cout << "\nPi calculated:\n";
-	std::cout << std::fixed << std::setprecision(a) << piFind(x);
+	std::cout << piFind(x);
 	
 	return 0;
 }

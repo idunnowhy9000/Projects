@@ -7,8 +7,19 @@
 #include <map>
 #include <set>
 
+// PROTOTYPES
 const char* SEPERATOR = " 	\r\n.,!:;\'\"-()[]";
+void filterDuplicates(std::vector<std::string> &v);
+std::vector<std::string> splitWords(std::string str);
+class InvertedIndex;
 
+int main() {
+	InvertedIndex index;
+	
+	return 0;
+}
+
+// BEGIN CODE
 void filterDuplicates(std::vector<std::string> &v) {
 	std::vector<std::string> vec(v);
 	std::set<std::string> s( vec.begin(), vec.end() );
@@ -37,22 +48,20 @@ class InvertedIndex {
 private:
 	std::map<std::string, std::vector<int>> word_map;
 	std::vector<std::string> texts;
+	int len;
 public:
 	InvertedIndex() {};
 	
-	void addText(std::string _text) {
-		texts.assign(_text);
-		int pos = texts.length();
+	void addText(std::string text) {
+		texts.assign(text);
+		len = texts.length();
 		
-		std::vector<std::string> words = splitWords(texts);
+		std::vector<std::string> words = splitWords(text);
 		for (auto const &i : words) {
-			word_map[i];
+			word_map[i].append(len);
 		}
 	};
-};
-
-int main() {
-	InvertedIndex index;
 	
-	return 0;
-}
+	std::vector<int> searchText(std::string text) {
+	};
+};

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 #include <utility>
 #include <string>
 
@@ -33,7 +32,7 @@ int main() {
 	std::cout << "Enter number: ";
 	std::getline(std::cin, str);
 
-	n = atoi(str.c_str());
+	n = std::stoi(str);
 	
 	std::pair<int, std::vector<int>> extract = collatz(n);
 	int j = std::get<0>(extract);

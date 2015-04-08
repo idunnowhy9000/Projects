@@ -34,7 +34,6 @@ Letter = 'a' | ... | 'z' | 'A' | ... | 'z';
  */
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include <cmath>
 #include <vector>
 
@@ -272,7 +271,7 @@ public:
 			}
 		}
 
-		value = atof(source.c_str());
+		value = std::stof(source);
 		return value;
 	};
 

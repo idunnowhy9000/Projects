@@ -3,10 +3,7 @@
  * generate the Fibonacci sequence to that number or to the Nth number.
  */
 #include <iostream>
-#include <cmath>
-#include <stdlib.h>
 #include <string>
-#include <cstdlib>
 
 void loopedFib(int n) {
 	int first = 0, second = 1, next;
@@ -42,7 +39,7 @@ int main(){
 	std::cout << "Fibonaccis up to: ";
 	std::getline(std::cin, str_x);
 
-	x = atoi(str_x.c_str());
+	x = std::stoi(str_x);
 
 	std::cout << "\nUsing loops:\n";
 	loopedFib(x);
@@ -51,4 +48,3 @@ int main(){
 	recursionFib(x);
 	return 0;
 }
-

@@ -25,7 +25,7 @@ int main() {
 	std::cout << "Factorial up to: ";
 	std::getline(std::cin, str_x);
 
-	x = atoi(str_x.c_str());
+	x = std::stoi(str_x);
 
 	std::cout << "\nUsing loops:\n";
 	loopedFact(x);

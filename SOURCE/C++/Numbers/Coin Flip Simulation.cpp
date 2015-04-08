@@ -3,8 +3,8 @@
  */
 #include <iostream>
 #include <string>
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
 
 int heads = 0, tails = 0;
 
@@ -27,7 +27,7 @@ int main() {
 	std::cout << "Enter coin flip times: ";
 	std::getline(std::cin, str_coinflip);
 	
-	coinflip = atoi(str_coinflip.c_str());
+	coinflip = std::stoi(str_coinflip);
 	
 	flip(coinflip);
 	

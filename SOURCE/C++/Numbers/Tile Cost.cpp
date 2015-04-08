@@ -3,7 +3,6 @@
  */
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include <cmath>
 
 float calcCost (float cost, float width, float height) {
@@ -22,20 +21,20 @@ int main() {
 	std::cout << "Cost per tile: ";
 	std::getline(std::cin, str_cost);
 
-	cost = std::atof(str_cost.c_str());
+	cost = std::stof(str_cost);
 
 	std::cout << "Width of room: ";
 	std::getline(std::cin, str_width);
 
-	width = std::atof(str_width.c_str());
+	width = std::stof(str_width);
 
 	std::cout << "Height of room: ";
 	std::getline(std::cin, str_height);
 
-	height = std::atof(str_height.c_str());
+	height = std::stof(str_height);
 
 	total = calcCost(cost, width, height);
 
-	std::cout << "Total cost of tiling is " << "$" << (int)round(total);
+	std::cout << "Total cost of tiling is " << "$" << round(total);
 	return 0;
 }
