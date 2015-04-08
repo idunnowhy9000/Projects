@@ -158,6 +158,7 @@ public:
 				}
 			}
 
+			consumeWhitespace();
 			if (peek() == '(') { // functions
 				return parseFunction(var_name);
 			}
@@ -169,7 +170,6 @@ public:
 	float parseFunction(std::string var_name) {
 		std::vector<float> arguments;
 
-		consumeWhitespace();
 		consume('(');
 		
 		consumeWhitespace();
